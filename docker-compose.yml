@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  bhome-frontend:
+    container_name: bhome-frontend
+    image: transactions-bhome
+    ports:
+      - "80:80"
+    restart: unless-stopped

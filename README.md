@@ -1,27 +1,60 @@
-# TransactionsBhome
+<div align="center">
+<h1>b.Home Transactions</h1>
+</div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+<hr />
 
-## Development server
+## About
+This is the skeleton of an Angular SPA which is responsible for creating banking transactions.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Requirements
+* Develop the frontend based on UI/UX pre-defined requirements
+* Use CSS Tailwind to setup the page
+* Use Angular 15+
+* Use out of the box linting / formatting
+* Make use of the API endpoint to get the data
+* Try to follow Angular Coding styleguide and best practices [StyleGuide](https://angular.io/guide/styleguide).
 
-## Code scaffolding
+## Installation
+### Prerequisites
+Make sure you have installed all the following prerequisites on your development machine:
+* `Node.JS` and `Angular CLI`, for building the `kalah-frontend`;
+* `Docker` and `Docker-Compose`, to build and run the application containers;
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Also make sure that the following ports are available:
+* `8080`, used for the openjdk container holding the `starbux-backend`;
 
-## Build
+### 1. b.Home Frontend Application
+Execute the following commands in order to build and generate the docker container images:
+1. Enter the `transactions-bhome` folder:  
+``$ cd transactions-bhome ``  
+2. Install the node dependencies:  
+``$ npm install``  
+3. Build the distributable application:  
+``$ ng build``  
+4. Execute the Docker build to generate the docker container image:  
+``$ docker build -t transactions-bhome .``
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 2. Docker-Compose
+From the root folder of this project execute the following commands.
+1. Enter the `transactions-bhome` folder:  
+``$ cd transactions-bhome ``  
 
-## Running unit tests
+2. First check if the image was successfully generated using the command:  
+   ``$ docker image ls``
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Execute the following command to setup the whole application and deploy:  
+   ``$ docker-compose up -d``
 
-## Running end-to-end tests
+## Future Improvements
+* `General`:
+    * Add the necessary component tests;
+    * Add the missing validations on the transfer form;
+    
+## Contributors
+Nathan Ribeiro
+* [Github](https://github.com/nathanlogus)
+* [LinkedIn](https://www.linkedin.com/in/nathanlogus/)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## LICENSE
+[GNU-3](LICENSE)
