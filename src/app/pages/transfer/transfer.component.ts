@@ -1,6 +1,6 @@
 import { formatCurrency } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-transfer',
@@ -9,15 +9,36 @@ import { FormBuilder, Validators, FormArray } from '@angular/forms';
 })
 export class TransferComponent {
   myAccountBalance = 5824.76;
+  showConfirmationModal = false;
   transferForm = this.fb.group({
     balance: [{ value: "My Personal Account: " + formatCurrency(this.myAccountBalance, 'en-US', "€ "), disabled: true }, Validators.required],
-    account: ['', Validators.required],
-    amount: [0, Validators.required],
+    account: [, Validators.required],
+    amount: [, Validators.required],
   });
 
   constructor(private fb: FormBuilder) { }
 
   submitForm(event: any) {
-    console.warn(this.transferForm.value);
+    if (this.transferForm.valid) {
+      this.toggleModal();
+    }
+  }
+
+  ammountInvalid(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const forbidden = control.value > this.myAccountBalance + 500 || control.value < 0;
+      return forbidden ? {forbiddenName: {value: control.value}} : null;
+    };
+  }
+
+  toggleModal(){
+    this.showConfirmationModal = !this.showConfirmationModal;
+  }
+
+  sendTransfer() {
+    // TODO send transfer to server and update balance in myAccountBalance
+    this.transferForm.reset();
+    this.transferForm.controls.balance.setValue("My Personal Account: " + formatCurrency(this.myAccountBalance, 'en-US', "€ "));
+    this.toggleModal();
   }
 }

@@ -10,12 +10,14 @@ import { TransferComponent } from './pages/transfer/transfer.component';
 import { TransactionListComponent } from './pages/transaction-list/transaction-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationModalComponent } from './pages/transfer/confirmation-modal/confirmation-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
     OverviewComponent,
     TransferComponent,
-    TransactionListComponent
+    TransactionListComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     BrowserModule,

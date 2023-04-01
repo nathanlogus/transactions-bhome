@@ -1,28 +1,33 @@
 <form [formGroup]="transferForm" class="p-2">
     <div class="mb-6">
         <label for="balance" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">From Account</label>
-        <input type="text" id="balance" formControlName="balance" 
+        <input type="text" id="balance" formControlName="balance"
             class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="{{myAccountBalance | currency }}" required>
     </div>
     <div class="mb-6">
         <label for="account" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">To Account</label>
-        <input type="text" id="account" formControlName="account" 
+        <input type="text" id="account" formControlName="account"
             class="bg-white-50 border border--300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="type an account name" required>
+        <p *ngIf="!this.transferForm.controls.account.valid" class="mt-0 text-sm text-red-600 dark:text-red-500">This field is required.</p>
     </div>
     <div class="mb-0">
         <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>
-        <div class="flex mb-6">
+        <div class="flex mb-2">
             <span
                 class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">€</span>
-            <input type="text" id="amount" formControlName="amount" 
+            <input type="number" id="amount" formControlName="amount"
                 class="rounded-none rounded-r-lg bg-white-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
                 placeholder="specify the amount" required>
         </div>
+        <p *ngIf="!this.transferForm.controls.amount.valid" class="mt-0 text-sm text-red-600 dark:text-red-500">This value is not valid.</p>
     </div>
 
-    <div class="relative w-auto mb-16">
+    <div class="relative w-auto mt-2 mb-12">
         <app-submit-button (submitForm)="submitForm($event)"></app-submit-button>
     </div>
 </form>
+
+<app-confirmation-modal [show]="showConfirmationModal" [transfer]="this.transferForm.value" (cancel)="toggleModal()"
+    (close)="sendTransfer()"></app-confirmation-modal>
