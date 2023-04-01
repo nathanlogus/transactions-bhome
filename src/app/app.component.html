@@ -1,12 +1,10 @@
-<div class="flex h-screen w-full overflow-hidden">
+<div class="flex w-full">
   <div class="flex grow flex-col content-start bg-gray-100 dark:bg-night-800">
     <!-- Header Component -->
     <app-layout-header></app-layout-header>
     <!-- Content Area -->
-    <main class="background h-full w-full">
-      <div class="mx-auto w-4/5">
-        <router-outlet class="w-max"></router-outlet>
-      </div>      
+    <main class="background w-full h-full">
+        <router-outlet></router-outlet>
     </main>
     <!-- Footer Component -->
     <app-layout-footer></app-layout-footer>
