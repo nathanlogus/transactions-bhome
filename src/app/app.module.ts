@@ -11,13 +11,15 @@ import { TransactionListComponent } from './pages/transaction-list/transaction-l
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationModalComponent } from './pages/transfer/confirmation-modal/confirmation-modal.component';
+import { ConfirmationToastComponent } from './pages/transfer/confirmation-toast/confirmation-toast.component';
 @NgModule({
   declarations: [
     AppComponent,
     OverviewComponent,
     TransferComponent,
     TransactionListComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    ConfirmationToastComponent
   ],
   imports: [
     BrowserModule,

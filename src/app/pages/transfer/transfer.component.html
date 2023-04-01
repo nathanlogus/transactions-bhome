@@ -31,3 +31,4 @@
 
 <app-confirmation-modal [show]="showConfirmationModal" [transfer]="this.transferForm.value" (cancel)="toggleModal()"
     (close)="sendTransfer()"></app-confirmation-modal>
+<app-confirmation-toast [show]="showConfirmationToast" [message]="'Succesfull transfer!'"></app-confirmation-toast>
