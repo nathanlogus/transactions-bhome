@@ -9,6 +9,7 @@ import { OverviewComponent } from './pages/overview/overview.component';
 import { TransferComponent } from './pages/transfer/transfer.component';
 import { TransactionListComponent } from './pages/transaction-list/transaction-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BbUIModule,
     CoreModule
   ],

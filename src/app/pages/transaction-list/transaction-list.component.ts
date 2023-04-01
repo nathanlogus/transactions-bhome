@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, takeUntil, filter, tap } from 'rxjs/operators';
+import { debounceTime, tap } from 'rxjs/operators';
 import { Transaction, TransactionService } from 'src/app/core/services/transaction.service';
 
 @Component({

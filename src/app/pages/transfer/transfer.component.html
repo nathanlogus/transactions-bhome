@@ -1,13 +1,13 @@
-<form class="p-2">
+<form [formGroup]="transferForm" class="p-2">
     <div class="mb-6">
         <label for="balance" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">From Account</label>
-        <input type="text" disabled id="balance"
+        <input type="text" id="balance" formControlName="balance" 
             class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            placeholder="My Personal Account: {{myAccountBalance | currency }}" required>
+            placeholder="{{myAccountBalance | currency }}" required>
     </div>
     <div class="mb-6">
         <label for="account" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">To Account</label>
-        <input type="text" id="account"
+        <input type="text" id="account" formControlName="account" 
             class="bg-white-50 border border--300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="type an account name" required>
     </div>
@@ -16,14 +16,13 @@
         <div class="flex mb-6">
             <span
                 class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">€</span>
-            <input type="text" id="amount"
+            <input type="text" id="amount" formControlName="amount" 
                 class="rounded-none rounded-r-lg bg-white-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
-                placeholder="specify the amount">
+                placeholder="specify the amount" required>
         </div>
     </div>
 
     <div class="relative w-auto mb-16">
-        <button type="submit"
-            class="absolute right-0 text-white bg-orange-500 bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+        <app-submit-button (submitForm)="submitForm($event)"></app-submit-button>
     </div>
 </form>
