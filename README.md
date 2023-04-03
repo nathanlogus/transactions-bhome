@@ -18,11 +18,11 @@ This is the skeleton of an Angular SPA which is responsible for creating banking
 ## Installation
 ### Prerequisites
 Make sure you have installed all the following prerequisites on your development machine:
-* `Node.JS` and `Angular CLI`, for building the `kalah-frontend`;
+* `Node.JS` and `Angular CLI`, for building the `transactions-bhome`;
 * `Docker` and `Docker-Compose`, to build and run the application containers;
 
 Also make sure that the following ports are available:
-* `8080`, used for the openjdk container holding the `starbux-backend`;
+* `80`, used for the container holding the `transaction-bhome` frontend;
 
 ### 1. b.Home Frontend Application
 Execute the following commands in order to build and generate the docker container images:
